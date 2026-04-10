@@ -1,5 +1,5 @@
 public class TestDeploy {
     public static void hello() {
-        System.debug('Hello QAs testing 99');
+        System.debug('Hello QAs, how are you doing');
     }
 }
