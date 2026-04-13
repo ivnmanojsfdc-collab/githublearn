@@ -2,7 +2,7 @@ sfanalyser:
 name: Salesforce Code Analyzer
 on:
   pull_request:
-    branches: [main]
+    branches: [master]
 jobs:
   analyze:
     runs-on: ubuntu-latest
