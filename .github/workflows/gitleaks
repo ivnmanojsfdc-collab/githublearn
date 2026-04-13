@@ -2,7 +2,7 @@ gitleak:
 name: Gitleaks Secret Scan
 on:
   pull_request:
-    branches: [main]
+    branches: [master]
 jobs:
   gitleaks:
     runs-on: ubuntu-latest
