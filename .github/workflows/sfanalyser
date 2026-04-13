@@ -1,0 +1,26 @@
+sfanalyser:
+name: Salesforce Code Analyzer
+on:
+  pull_request:
+    branches: [master]
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install SF CLI
+        run: npm install -g @salesforce/cli
+      - name: Install Code Analyzer
+        run: sf plugins install @salesforce/plugin-code-analyzer
+      - name: Run scan
+        run: |
+          sf code-analyzer run \
+            --target force-app/ \
+            --format sarif \
+            --outfile results.sarif \
+            --engine pmd,eslint
+      - name: Upload to GitHub Security
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: results.sarif

@@ -4,5 +4,7 @@ public class HelloWorld {
     public static List search(String name) {
         String q = 'SELECT Id FROM Contact WHERE Name = \'' + name + '\'';
         return Database.query(q);
+    public static String greet(String name) {
+        return 'Hello ' + name;
     }
 }
